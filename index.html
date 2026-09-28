@@ -73,7 +73,7 @@
   @media (max-width: 780px) { nav .links a.nav-item { display: none; } }
 
   .hero-mid { flex: 1; display: flex; align-items: center; position: relative; z-index: 4; }
-  .hero-copy { max-width: 620px; padding: 3vh 0; }
+  .hero-copy { max-width: 500px; padding: 3vh 0; }
   .hero-copy .kicker { color: #cfc7bc; margin-bottom: 22px; }
   .hero-copy h1 { font-size: clamp(40px, 6.6vw, 92px); margin: 0; }
   .hero-copy h1 span { display: block; }
@@ -84,8 +84,8 @@
 
   .hero-photo {
     position: absolute; z-index: 6;
-    left: 62%; transform: translateX(-50%);
-    top: 13vh; width: min(43vw, 580px);
+    right: 5%; top: 13vh;
+    width: min(40vw, 600px);
   }
   .hero-photo .disc {
     position: absolute; z-index: 1; left: 50%; top: -4%; transform: translateX(-50%);
@@ -100,10 +100,11 @@
   }
   .hero-name {
     position: relative; z-index: 2;
-    display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
-    gap: 0 2vw; padding: 0 0 4vh; line-height: .84;
+    width: 100vw; margin-left: calc(50% - 50vw);
+    display: flex; align-items: baseline; justify-content: center; flex-wrap: wrap;
+    gap: 0 2vw; padding: 0 3vw 4vh; line-height: .84;
   }
-  .hero-name .display { font-size: clamp(26px, 5.6vw, 116px); color: var(--cream); white-space: nowrap; }
+  .hero-name .display { font-size: clamp(30px, 7.2vw, 150px); color: var(--cream); white-space: nowrap; }
   .hire {
     position: absolute; z-index: 4; left: 50%; bottom: 8.5vh; transform: translateX(-50%) rotate(-7deg);
     width: clamp(92px, 12vw, 148px); height: clamp(92px, 12vw, 148px);
