@@ -95,6 +95,13 @@
     .mobile-menu.open { opacity: 1; visibility: visible; }
     .mobile-menu a { color: var(--cream); font-weight: 900; letter-spacing: -1px; text-transform: uppercase; font-size: 10vw; padding: 6px 0; }
     .mobile-menu a.mm-talk { color: var(--coral); font-size: 5vw; letter-spacing: 1px; margin-top: 16px; }
+    .mobile-menu .mm-close {
+      position: fixed; top: 14px; right: 16px; z-index: 61;
+      width: 46px; height: 46px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--coral); color: #fff; border: 0; cursor: pointer;
+      font-size: 30px; line-height: 1; padding: 0 0 4px;
+    }
   }
 
   /* scroll-reveal (JS adds .reveal, then .in) */
@@ -371,6 +378,7 @@
       <img class="person" src="emmanuel-cutout.png" alt="Emmanuel Tavares" />
     </div>
     <div class="mobile-menu" id="mobileMenu">
+      <button class="mm-close" aria-label="Close menu">&times;</button>
       <a href="#work">Work</a>
       <a href="#process">Process</a>
       <a href="#toolbox">Stack</a>
@@ -700,16 +708,17 @@
   var toggle = document.querySelector(".nav-toggle");
   var menu = document.getElementById("mobileMenu");
   if (toggle && menu) {
+    var closeBtn = menu.querySelector(".mm-close");
     var setOpen = function (open) {
       menu.classList.toggle("open", open);
-      toggle.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      toggle.style.visibility = open ? "hidden" : "";
       document.body.style.overflow = open ? "hidden" : "";
     };
     toggle.addEventListener("click", function () {
       setOpen(!menu.classList.contains("open"));
     });
+    if (closeBtn) closeBtn.addEventListener("click", function () { setOpen(false); });
     menu.addEventListener("click", function (e) {
       if (e.target.tagName === "A") setOpen(false);
     });
